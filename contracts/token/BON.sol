@@ -6,9 +6,7 @@ import "zeppelin-solidity/contracts/token/BasicToken.sol";
 // members :
 
 // - uint256 public totalSupply
-
 // - mapping(address => uint256) balances -> balances registry
-
 // - function balanceOf(address who) public constant returns (uint256)
 // - function transfer(address to, uint256 value) public returns (bool)
 // - event Transfer(address indexed from, address indexed to, uint256 value)
