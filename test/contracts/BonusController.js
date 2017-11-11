@@ -10,10 +10,36 @@ contract('BonusController', function (accounts) {
         assert(web3.isAddress(addr))
     })
 
-    it(`Should be 5`, async function () {
+    it(`Should calculate to 1`, async function () {
         const instance = await BonusController.deployed()
-        const result = await instance.charge.call(0, 5)
-        assert.strictEqual(result.toNumber(), 5)
+        const purchaseAmount = 0.1
+        let wBonus = await instance.charge.call(0, web3.toWei(purchaseAmount, 'ether'))
+        let eBonus = web3.fromWei(wBonus, 'ether').toNumber()
+        assert.strictEqual(eBonus, 1)
+    })
+
+    it(`Should calculate to 10`, async function () {
+        const instance = await BonusController.deployed()
+        const purchaseAmount = 0.6
+        let wBonus = await instance.charge.call(0, web3.toWei(purchaseAmount, 'ether'))
+        let eBonus = web3.fromWei(wBonus, 'ether').toNumber()
+        assert.strictEqual(eBonus, 10)
+    })
+
+    it(`Should calculate to 1`, async function () {
+        const instance = await BonusController.deployed()
+        const purchaseAmount = 100
+        let wBonus = await instance.charge.call(0, web3.toWei(purchaseAmount, 'ether'))
+        let eBonus = web3.fromWei(wBonus, 'ether').toNumber()
+        assert.strictEqual(eBonus, 1)
+    })
+
+    it(`Should calculate to 0.02`, async function () {
+        const instance = await BonusController.deployed()
+        const purchaseAmount = 2
+        let wBonus = await instance.charge.call(0, web3.toWei(purchaseAmount, 'ether'))
+        let eBonus = web3.fromWei(wBonus, 'ether').toNumber()
+        assert.strictEqual(eBonus, 0.02)
     })
 
 })
