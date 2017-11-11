@@ -1,4 +1,4 @@
-let token = artifacts.require("BON.sol")
+let token = artifacts.require("BON")
 
 contract('BON', async function (accounts) {
 

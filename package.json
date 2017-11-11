@@ -16,6 +16,7 @@
   "scripts": {
     "develop": "truffle develop",
     "chain": "testrpc",
+    "pretest": "truffle compile",
     "test": "truffle test",
     "watch": "npm-watch"
   },
