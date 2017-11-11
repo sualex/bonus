@@ -14,4 +14,5 @@ import "zeppelin-solidity/contracts/token/BasicToken.sol";
 contract BON is BasicToken {
     string public name = "bonus";
     string public symbol = "BON";
+
 }
